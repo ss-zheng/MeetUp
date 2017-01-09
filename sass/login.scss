@@ -1,0 +1,137 @@
+@import "compass/reset";
+@import "compass/css3";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  border: solid #377D6A 10px;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  color: #fff;
+  height: 100%;
+  background: #7AB893;
+}
+@mixin epic-sides() { // http://codepen.io/MichaelArestad/pen/qltuk
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: -5000px;
+        height: 100%;
+        width: 15000px;
+        z-index: -1;
+        @content;
+    }
+}
+.row {
+  //top: 100px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 30px;
+  background: #032429;
+  @include epic-sides() {background: inherit;}
+  text-align: center;
+  
+  &:nth-child(1),
+  &:nth-child(2), {
+    padding: 40px 30px 0px 30px;
+    background: #7AB893;
+  }
+  h1 {
+    font-size: 3em;
+    &:first-line {
+      font-size: 4em;
+    }
+  }
+  
+  span {
+    position: relative;
+    display: block;
+    margin: 30px 10px;
+  }
+}
+
+.basic-slide {
+  display: inline-block;
+  width: 250px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 70px; // Arbitrary.
+  transition: all .3s ease-in-out;
+  
+  &::-webkit-input-placeholder {
+    color: #efefef;
+    text-indent: 0;
+    font-weight: 300;
+  }
+
+  + label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 235px;
+    padding: 10px 15px;
+    text-shadow: 0 1px 0 rgba(19,74,70,.4);
+    background: #032429;
+    transition: all .3s ease-in-out;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+.basic-slide:focus,
+.basic-slide:active {
+  color: #377D6A;
+  text-indent: 0;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  
+  &::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  + label {
+    transform: translateX(-99%);
+  }
+}
+
+.submit {
+  display: inline-block;
+  margin-left: 26px;
+  width: 100px;
+  padding: 10px 0 10px 0px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  transition: all .3s ease-in-out;
+}
+.submit:hover {
+  color: #377D6A;
+  text-indent: 0;
+  background: #fff;
+}
+
+a {
+  color: #efefef;
+}
+a:hover {
+  color: #fff;
+}
